@@ -15,7 +15,7 @@ engine.setProperty('voice', voices[0].id)
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
-    print("LUPIN: ", audio)
+    print("SARVESH: ", audio)
   
 def wishMe():
     hour = int(datetime.datetime.now().hour)
@@ -79,7 +79,7 @@ if __name__ == "__main__":
             webbrowser.open("https://www.flipkart.com")
 
         elif 'sing my favourite music' in query:
-            speak("sir my voice is not good so i play this on youtube")
+            speak("sir my voice is not good so i am playing this song on youtube")
             webbrowser.open("https://www.youtube.com/watch?v=v2IGNN7CA4M&list=RDv2IGNN7CA4M&start_radio=1")
 
         elif 'open google' in query:

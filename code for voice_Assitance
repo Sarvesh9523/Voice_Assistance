@@ -12,18 +12,21 @@ voices = engine.getProperty('voices')
 
 engine.setProperty('voice', voices[0].id)
 
+
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
-    print("SARVESH: ", audio)
-  
+    print("OPTIMUS: ", audio)
+
+
 def wishMe():
     hour = int(datetime.datetime.now().hour)
-    if hour>=0 and hour<12:
-        speak("Good morning sir!")
+    if hour >= 0 and hour < 12:
+        speak("Good morning Sarvesh!")
     else:
-        speak("Welcome Back sir!")
-        speak("How may I help you sir!")
+        speak("Welcome Back , Sarvesh!")
+        speak("How may I help you , Sarvesh!")
+
 
 def takecommand():
     r = sr.Recognizer()
@@ -35,13 +38,13 @@ def takecommand():
         print("Recognizing...")
         query = r.recognize_google(audio, language='en-in')
         print(f"You: {query}\n")
-        
-       
+
     except Exception as e:
         print(e)
         print("Sorry, Please say that again...")
         return "None"
     return query
+
 
 if __name__ == "__main__":
     wishMe()
@@ -59,14 +62,11 @@ if __name__ == "__main__":
         elif 'open youtube' in query:
             webbrowser.open("https:\\www.youtube.com")
 
-      
-
         elif 'play' in query:
-           song = query.replace("play", "")
-           speak('playing ' + song)
-           pywhatkit.playonyt(song)
-            
-            
+            song = query.replace("play", "")
+            speak('playing ' + song)
+            pywhatkit.playonyt(song)
+
         elif 'what is time' in query:
             time = datetime.datetime.now().strftime('%I:%M %p')
             speak('Current time is ' + time)
@@ -80,7 +80,11 @@ if __name__ == "__main__":
 
         elif 'sing my favourite music' in query:
             speak("sir my voice is not good so i am playing this song on youtube")
-            webbrowser.open("https://www.youtube.com/watch?v=v2IGNN7CA4M&list=RDv2IGNN7CA4M&start_radio=1")
+            webbrowser.open(
+                "https://www.youtube.com/watch?v=v2IGNN7CA4M&list=RDv2IGNN7CA4M&start_radio=1")
 
         elif 'open google' in query:
             webbrowser.open("https://www.google.com")
+
+        elif 'open my college information ' in query:
+            webbrowser.open("https://uims.cuchd.in/uims/StudentHome.aspx")
